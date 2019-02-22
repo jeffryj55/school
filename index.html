@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+h1 {
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+p {
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+.container{
+	color:black;
+}
+.btn
+{
+	background: lavender;
+	border:5px solid;
+}
+.bg
+{
+	background: url('img/2.jpg');
+}
+input{
+	border: 2px solid black;
+}
+
+</style>
+<body class="bg">
+	<div class="container text-center">
+		<div class="container-fluid">
+			<div class="row text-center">
+				<div class=" col-sm-12">
+					<h1 class="title">SCHOOL APP</h1>
+					<p>To record mark and view mark</p>
+				</div>
+			</div>
+		</div>
+	</div>
+			<table align="center" cellpadding = "13">
+ 
+<!----- First Name ---------------------------------------------------------->
+<tr>
+<td colspan="2" align="center">
+
+             
+              <a href="record.html" style="margin-left: 20px;"><button class="btn">Records</button></a><br><br>
+</td>
+</tr>
+<tr>
+<td><h4>NAME :</h4> </td>
+<td><input type="text" id="name" class="form-control"><br>
+
+</td>
+</tr>
+ 
+
+ 
+ 
+<!----- Email Id ---------------------------------------------------------->
+<tr>
+<td><h4>REGISTER NO : </h4></td>
+<td><input type="text" id="regno" class="form-control" maxlength="100" /><br>
+</td>
+</tr>
+ 
+<!----- Mobile Number ---------------------------------------------------------->
+<tr>
+<td><h4>CLASS : </h4></td>
+<td>
+<input type="text" id="class" class="form-control" maxlength="10" /><br>
+
+</td>
+</tr>
+ 
+
+<!----- City ---------------------------------------------------------->
+<tr>
+<td><h4>TAMIL : </h4></td>
+<td><input type="text" id="tamil" class="form-control" maxlength="30" /><br>
+</td>
+</tr>
+<tr>
+<td><h4>ENGLISH : </h4></td>
+<td><input type="text" id="english" class="form-control" maxlength="30" /><br>
+</td>
+</tr>
+<tr>
+<td><h4>MATHEMATICS :</h4> </td>
+<td><input type="text" id="maths" class="form-control" maxlength="30" /><br>
+</td>
+</tr>
+<tr>
+<td><h4>SCIENCE : </h4></td>
+<td><input type="text" id="science" class="form-control" maxlength="30" /><br>
+</td>
+</tr>
+<tr>
+<td><h4>SOCIAL :</h4> </td>
+<td><input type="text" id="social" class="form-control" maxlength="30" /><br>
+</td>
+</tr>
+ 
+
+ 
+
+ 
+<!----- Submit and Reset ------------------------------------------------->
+<tr>
+<td colspan="2" align="center">
+
+              <button onclick="myFunction()" class="btn">Submit</button>
+            
+</td>
+</tr>
+</table>
+ 
+</form>
+		</div>
+	</div>
+	  <script>
+            	var record=[];
+
+            	
+       function myFunction(){
+       var tot="";
+        var name=document.getElementById("name").value
+        var regno=document.getElementById("regno").value
+        var clas=document.getElementById("class").value
+        var tam=parseInt(document.getElementById("tamil").value);
+        var eng=parseInt(document.getElementById("english").value);
+        var mat=parseInt(document.getElementById("maths").value);
+        var sci=parseInt(document.getElementById("science").value);
+        var soc=parseInt(document.getElementById("social").value);
+        tot =tam+eng+mat+sci+soc;
+        var res="";
+        console.log(tot)
+        if(eng>=35 && tam>=35 && mat>=35 && sci>=35 && soc>=35)
+        {
+        	 
+          console.log("grade:pass")
+        	var res="pass";
+        	console.log(res)
+        }
+        else
+        {
+        	 console.log("grade:fail")
+        	 var res="fail";
+        	console.log(res)
+        }
+       
+        
+        var data={
+         Name: name,
+        Regno: regno,
+        Class:clas,
+        Tamil:tam,
+        English:eng,
+        Maths:mat,
+        Science:sci,
+        Social:soc,
+        Total:tot,
+        Result:res,
+        }
+        
+        
+        record= JSON.parse(localStorage.getItem('mark'));
+        record.push(data);
+        localStorage.setItem('mark',JSON.stringify(record));
+        console.log(record)
+    }
+    </script>
+	</body>

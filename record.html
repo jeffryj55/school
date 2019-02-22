@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+#body{
+	color :blue;
+	border:2px solid black;
+	background: darkseagreen;
+}
+.border{
+	border: 2px solid black;
+}
+.table{
+	border: 2px solid black;
+	background: lightgrey;
+}
+.bg
+{
+	background: url('img/1.jpg');
+}
+.btn{
+	color: lavender;
+	background: black;
+	border:2px solid black;
+	margin-top: 2%;
+}
+
+</style>
+<body class="bg">
+	<div class="container">
+		<div class="container-fluid bg-secondary">
+			<div class="row"style="background: lavender;border:2px solid black;">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+			     <center><h2 title="class"> Student Records</h2></center>
+		        </div>
+	        </div>
+	        <div class="row  text-center">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+            		<a href="index.html"><button type="button" class="btn">Add Records</button></a><br><br><br>
+                </div>
+			</div>
+	       <div class="row  text-center">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+	        <table class="table table-hover"style="color:black;font-size: 15px" border= "2" >
+                      <thead>
+                         <th>
+                         <center> Name</center>
+                         </th>
+                         <th>
+                         <center> Regno</center>
+                         </th>
+                         <th><center>Class</center></th>
+                         <th><center>Tamil</center></th>
+                         <th><center>English</center></th>
+                         <th><center>Maths</center></th>
+                         <th><center>Science</center></th>
+                         <th><center>Social</center></th>
+                         <th><center>Total</center></th>
+                         <th><center>Result</center></th>
+
+                      </thead>
+                      <strong><tbody id="body"></tbody></strong>
+                    </table>
+                </div>
+            </div>
+                   
+		</div>
+	</div>
+
+
+            <script>
+      
+
+var a= JSON.parse(localStorage.getItem('mark'));
+ for(var i=0;i<a.length;i++){
+  
+    document.getElementById("body").innerHTML +='<tr><td><b>'+a[i].Name+'</td></b>'+'<td><b>'+a[i].Regno +'</b></td>'+'<td><b>'+a[i].Class +'</b></td>'+'<td><b>'+a[i].Tamil +'</b></td>'+'<td><b>'+a[i].English +'</b></td>'+'<td><b>'+a[i].Maths +'<td><b>'+a[i].Science +'</b></td>'+'<td><b>'+a[i].Social +'</b></td>'+'<td><b>'+a[i].Total +'</b></td>'+'</b></td>'+'<td><b>'+a[i].Result +'</b></td></tr>';
+
+ }
+</script>
+</body>
+
+</html>
